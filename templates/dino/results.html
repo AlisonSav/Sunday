@@ -1,0 +1,16 @@
+{% block title %} Results {% endblock title %}
+{% load static %}
+{% block css_additional %}
+<link rel="stylesheet" href="{% static 'dino/style.css' %}">
+{% endblock css_additional %}
+{% block content %}
+    <h1>{{ question.question_text }}</h1>
+
+    <ul>
+        {% for choice in question.choice_set.all %}
+            <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'detail' question.id %}">Vote again?</a>
+{% endblock content %}
