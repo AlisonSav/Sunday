@@ -12,7 +12,7 @@ class Command(BaseCommand):
         parser.add_argument(
             "count",
             type=int,
-            choices=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+            choices=range(1, 11),
             help="Indicates the number of users to be created",
         )
 
